@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "vergigpt",
+    "name": "VergiGPT",
     "slug": "vergigpt",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,13 +13,15 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vergigpt.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.vergigpt.app"
     },
     "web": {
       "bundler": "metro",
