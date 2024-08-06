@@ -8,12 +8,12 @@ import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBhQpRKzAgB-wD0dX3PyGgnLA4O1l0hY-w",
-    authDomain: "vergi-gpt.firebaseapp.com",
-    projectId: "vergi-gpt",
-    storageBucket: "vergi-gpt.appspot.com",
-    messagingSenderId: "210866303046",
-    appId: "1:210866303046:web:2e3e439993c3d57b08da47"
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID
 };
 
 // Initialize Firebase
