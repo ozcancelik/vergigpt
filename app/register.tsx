@@ -16,37 +16,9 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { Ionicons } from "@expo/vector-icons";
-import Toast, { BaseToast, ErrorToast } from "react-native-toast-message";
+import Toast from "react-native-toast-message";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-const toastConfig = {
-  success: (props: any) => (
-    <BaseToast
-      {...props}
-      style={{ borderLeftColor: "#22c55e", backgroundColor: "#4ade80" }}
-      contentContainerStyle={{ paddingHorizontal: 15 }}
-      text1Style={{ fontSize: 15, fontWeight: "bold", color: "white" }}
-      text2Style={{ fontSize: 13, color: "white" }}
-    />
-  ),
-  error: (props: any) => (
-    <ErrorToast
-      {...props}
-      style={{ borderLeftColor: "#dc2626", backgroundColor: "#ef4444" }}
-      contentContainerStyle={{ paddingHorizontal: 15 }}
-      text1Style={{ fontSize: 15, fontWeight: "bold", color: "white" }}
-      text2Style={{ fontSize: 13, color: "white" }}
-    />
-  ),
-  warning: (props: any) => (
-    <BaseToast
-      {...props}
-      style={{ borderLeftColor: "#f59e0b", backgroundColor: "#f97316" }}
-      contentContainerStyle={{ paddingHorizontal: 15 }}
-      text1Style={{ fontSize: 15, fontWeight: "bold", color: "white" }}
-      text2Style={{ fontSize: 13, color: "white" }}
-    />
-  ),
-};
+import { toastConfig } from "@/config/toast-config";
 
 const Page = () => {
   const [loading, setLoading] = useState(false);

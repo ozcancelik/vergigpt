@@ -17,7 +17,7 @@ import Toast from "react-native-toast-message";
 export { ErrorBoundary } from "expo-router";
 
 export const unstable_settings = {
-  initialRouteName: "/(tabs)",
+  initialRouteName: "/(drawer)",
 };
 
 SplashScreen.preventAutoHideAsync();
@@ -53,24 +53,14 @@ function RootLayoutNav() {
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen
-          name="login"
+          name="(auth)"
           options={{
+            headerShown: false,
             presentation: "modal",
-            title: "Giriş Yap",
-            headerTitleStyle: {
-              fontFamily: "mon-sb",
-            },
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => router.back()}>
-                <Ionicons
-                  name="close-outline"
-                  size={28}
-                  color={colorScheme === "dark" ? "white" : "black"}
-                />
-              </TouchableOpacity>
-            ),
           }}
         />
+        <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+
         <Stack.Screen
           name="register"
           options={{
@@ -99,7 +89,6 @@ function RootLayoutNav() {
             },
           }}
         />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>
       <Toast />
     </ThemeProvider>
