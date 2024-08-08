@@ -4,7 +4,7 @@ import { useColorScheme } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter, useSegments } from "expo-router";
-import { FIREBASE_AUTH } from "@/FirebaseConfig";
+import { FIREBASE_AUTH } from "@/config/firebase-config";
 import { onAuthStateChanged, User } from "firebase/auth";
 
 export default function RootLayout() {

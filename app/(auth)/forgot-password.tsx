@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { router } from "expo-router";
-import { FIREBASE_AUTH } from "@/FirebaseConfig";
+import { FIREBASE_AUTH } from "@/config/firebase-config";
 import { sendPasswordResetEmail } from "firebase/auth";
 import Toast from "react-native-toast-message";
 

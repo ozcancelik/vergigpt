@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, AppState } from "react-native";
 import { router } from "expo-router";
-import { FIREBASE_AUTH } from "../FirebaseConfig";
+import { FIREBASE_AUTH } from "@/config/firebase-config";
 import { onIdTokenChanged, sendEmailVerification } from "firebase/auth";
 import Toast from "react-native-toast-message";
 import { User } from "firebase/auth";

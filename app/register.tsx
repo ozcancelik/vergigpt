@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { router } from "expo-router";
-import { FIREBASE_AUTH, FIREBASE_DB } from "../FirebaseConfig";
+import { FIREBASE_AUTH, FIREBASE_DB } from "@/config/firebase-config";
 import {
   createUserWithEmailAndPassword,
   updateProfile,
@@ -128,12 +128,6 @@ const Page = () => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       className="flex-1 p-4 bg-white dark:bg-gray-900"
     >
-      {loading && (
-        <View className="absolute inset-0 bg-black/50 items-center justify-center">
-          <ActivityIndicator size="large" color="#fff" />
-        </View>
-      )}
-
       <Text className="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-white">
         Yeni hesap oluştur
       </Text>
@@ -148,7 +142,7 @@ const Page = () => {
         />
 
         <TextInput
-          className="h-12 border border-gray-300 dark:border-gray-600 rounded-xl px-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-white mb-2 mt-2"
+          className="h-12 border border-gray-300 dark:border-gray-600 rounded-xl px-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-white mb-2"
           placeholder="E-posta"
           placeholderTextColor="#9CA3AF"
           value={email}
@@ -157,7 +151,7 @@ const Page = () => {
           autoCapitalize="none"
         />
 
-        <View className="flex-row items-center h-12 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 mt-2">
+        <View className="flex-row items-center h-12 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800">
           <TextInput
             className="flex-1 h-full px-4 text-gray-800 dark:text-white"
             placeholder="Şifre"
@@ -204,9 +198,21 @@ const Page = () => {
 
       <TouchableOpacity
         onPress={signUp}
-        className="bg-blue-500 rounded-xl py-3 items-center"
+        disabled={loading}
+        className={`bg-blue-500 rounded-xl py-3 items-center h-20 flex justify-center ${
+          loading ? "opacity-70" : ""
+        }`}
       >
-        <Text className="text-white text-lg font-semibold">HESAP OLUŞTUR</Text>
+        {loading ? (
+          <View className="flex-row items-center">
+            <View className="w-5 h-5 border-t-2 border-r-2 border-white rounded-full animate-spin mr-2" />
+            <Text className="text-white text-lg font-semibold"></Text>
+          </View>
+        ) : (
+          <View className="flex-row items-center">
+            <Text className="text-white text-lg font-semibold">GİRİŞ YAP</Text>
+          </View>
+        )}
       </TouchableOpacity>
 
       <Toast config={toastConfig} />
