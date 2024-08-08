@@ -1,3 +1,4 @@
+// app/_layout.tsx
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   DarkTheme,

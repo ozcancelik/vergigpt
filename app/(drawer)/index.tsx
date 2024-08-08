@@ -25,10 +25,7 @@ export default function HomeScreen() {
 
   const askQuestion = (question = prompt) => {
     if (question.trim()) {
-      router.push({
-        pathname: "/chat/new",
-        params: { question },
-      });
+      router.push(`/(drawer)`);
     }
   };
 
