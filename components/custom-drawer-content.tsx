@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, FlatList } from "react-native";
 import { useRouter } from "expo-router";
+import { useAuth } from "@/hooks/useAuth";
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -22,6 +23,8 @@ export default function CustomDrawerContent(
 ) {
   const [chats, setChats] = useState<Chat[]>([]);
   const user = FIREBASE_AUTH.currentUser;
+  const { signOut } = useAuth();
+
   const navigation = useRouter();
 
   useEffect(() => {
@@ -62,9 +65,11 @@ export default function CustomDrawerContent(
 
   const handleSignOut = async () => {
     try {
-      await FIREBASE_AUTH.signOut();
+      await signOut();
+      console.log("Çıkış yapıldı");
+      navigation.replace("/login");
     } catch (error) {
-      console.error("Error signing out:", error);
+      console.error("Çıkış yapılırken hata oluştu:", error);
     }
   };
 
